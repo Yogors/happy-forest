@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{aQ as o,aR as c}from"./index-0f4be6a1.js";const r={},t={class:"wh-full overflow-y flex"};function s(n,a){return o(),c("div",t,"大纲查看")}const l=e(r,[["render",s]]);export{l as default};
