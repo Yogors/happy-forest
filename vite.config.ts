@@ -1,7 +1,9 @@
 import { defineConfig, loadEnv } from 'vite';
 import { createViteProxy, getRootPath, getSrcPath, setupVitePlugins, viteDefine } from './build';
-import { getServiceEnvConfig, setupBuild } from './.env-config';
-
+import { getServiceEnvConfig } from './.env-config';
+// eslint-disable-next-line no-control-regex
+const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g;
+const DRIVE_LETTER_REGEX = /^[a-z]:/i;
 export default defineConfig(configEnv => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as ImportMetaEnv;
 
@@ -48,13 +50,23 @@ export default defineConfig(configEnv => {
         'xgplayer'
       ]
     },
-    build: setupBuild()
-    // {
-    //   reportCompressedSize: false,
-    //   sourcemap: false,
-    //   commonjsOptions: {
-    //     ignoreTryCatch: false
-    //   }
-    // }
+    build: {
+      reportCompressedSize: false,
+      sourcemap: false,
+      commonjsOptions: {
+        ignoreTryCatch: false
+      },
+      rollupOptions: {
+        output: {
+          // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
+          sanitizeFileName(name) {
+            const match = DRIVE_LETTER_REGEX.exec(name);
+            const driveLetter = match ? match[0] : '';
+            // substr 是被淘汰語法，因此要改 slice
+            return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '');
+          }
+        }
+      }
+    }
   };
 });
