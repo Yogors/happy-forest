@@ -7,20 +7,16 @@
     <div class="desktop">
       <img
         class="notice w-16% absolute left-25% top-6% cursor-pointer"
-        src="@/assets/images/update.jpg"
+        src="@/assets/images/update.png"
         @click="showModal = true"
       />
       <img
         class="notice w-16% absolute left-55% top-6% cursor-pointer"
-        src="@/assets/images/notice.jpg"
+        src="@/assets/images/Announcements.png"
         @click="showNoticeModal = true"
       />
     </div>
-    <!-- <img
-      class="w-48px h-48px absolute right-30px top-30px cursor-pointer"
-      src="@/assets/images/setting.jpg"
-      @click="showSettingModal = true"
-    /> -->
+    <video src="@/assets/images/Hamsterbuilding.mp4" class="squirrel absolute" muted autoplay loop></video>
     <div class="absolute left-30px top-30px" @click="playAudio">
       <svg-icon
         v-if="volume === 0"
@@ -29,8 +25,9 @@
       ></svg-icon>
       <svg-icon v-else icon="material-symbols:volume-up" class="text-48px cursor-pointer color-#fff"></svg-icon>
     </div>
-    <div class="absolute right-30px top-30px cursor-pointer color-#fff" @click="showSettingModal = true">
-      <svg-icon icon="material-symbols:settings-outline" class="text-48px cursor-pointer color-#fff"></svg-icon>
+    <div class="absolute w-48px h-48px right-30px top-30px cursor-pointer color-#fff" @click="showSettingModal = true">
+      <img class="" src="@/assets/images/setting.png" @click="showSettingModal = true" />
+      <!-- <svg-icon icon="material-symbols:settings-outline" class="text-48px cursor-pointer color-#fff"></svg-icon> -->
     </div>
 
     <n-modal
@@ -38,7 +35,7 @@
       style="
         width: 30vw;
         height: 41vw;
-        background: url('/src/assets/images/home-modal-bg.jpg') no-repeat center center/100% 100%, #fff;
+        background: url('/src/assets/images/StampPaper.png') no-repeat center center/100% 100%, #fff;
       "
     >
       <div class="pt-30 pl-20px pr-20px">
@@ -52,7 +49,7 @@
       style="
         width: 30vw;
         height: 41vw;
-        background: url('/src/assets/images/home-modal-bg.jpg') no-repeat center center/100% 100%, #fff;
+        background: url('/src/assets/images/StampPaper.png') no-repeat center center/100% 100%, #fff;
       "
     >
       <div class="pt-30 pl-20px pr-20px">
@@ -128,7 +125,7 @@ function logout() {
 
 <style scoped lang="scss">
 .main-page {
-  background: url('@/assets/images/bg.jpg') no-repeat center center/100% 100%;
+  background: url('@/assets/images/Background.png') no-repeat center center/100% 100%;
   position: relative;
   .desktop {
     position: absolute;
@@ -137,7 +134,15 @@ function logout() {
     transform: translate(-50%, -50%);
     width: 50vw;
     height: 28vw;
-    background: url('@/assets/images/desktop.jpg') no-repeat center center/100% 100%;
+    background: url('@/assets/images/Bulleten.png') no-repeat center center/100% 100%;
+  }
+  .squirrel {
+    top: 70%;
+    left: calc(50% + 35vw);
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
   }
 }
 </style>
