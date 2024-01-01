@@ -30,28 +30,14 @@
       <!-- <svg-icon icon="material-symbols:settings-outline" class="text-48px cursor-pointer color-#fff"></svg-icon> -->
     </div>
 
-    <n-modal
-      v-model:show="showModal"
-      style="
-        width: 30vw;
-        height: 41vw;
-        background: url('/src/assets/images/StampPaper.png') no-repeat center center/100% 100%, #fff;
-      "
-    >
+    <n-modal v-model:show="showModal" class="home-modal" style="width: 30vw; height: 41vw">
       <div class="pt-30 pl-20px pr-20px">
         <div class="text-6 text-center mb-20px">建设进度</div>
         <p class="mb-16px">2023-12-30: 宣传栏开工，新建进度表</p>
         <p class="mb-16px">2023-12-31: 公告栏开工</p>
       </div>
     </n-modal>
-    <n-modal
-      v-model:show="showNoticeModal"
-      style="
-        width: 30vw;
-        height: 41vw;
-        background: url('/src/assets/images/StampPaper.png') no-repeat center center/100% 100%, #fff;
-      "
-    >
+    <n-modal v-model:show="showNoticeModal" class="home-modal" style="width: 30vw; height: 41vw">
       <div class="pt-30 pl-20px pr-20px">
         <div class="text-6 text-center mb-20px">公告</div>
         <p class="mb-16px">快乐森林的居民们，你们好！</p>
@@ -144,5 +130,10 @@ function logout() {
     height: 20vw;
     object-fit: cover;
   }
+}
+</style>
+<style lang="scss">
+.home-modal {
+  background: url('@/assets/images/StampPaper.png') no-repeat center center/100% 100%, #fff;
 }
 </style>
