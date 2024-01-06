@@ -16,7 +16,7 @@
         @click="showNoticeModal = true"
       />
     </div>
-    <video src="@/assets/images/Hamsterbuilding.mp4" class="squirrel absolute" muted autoplay loop></video>
+    <img src="@/assets/images/Hamsterbuilding.gif" class="squirrel absolute" />
     <div class="absolute left-30px top-30px" @click="playAudio">
       <svg-icon
         v-if="volume === 0"
